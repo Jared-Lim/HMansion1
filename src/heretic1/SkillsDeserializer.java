@@ -14,7 +14,8 @@ import com.google.gson.JsonParseException;
 class SkillsDeserializer implements JsonDeserializer<Skills>{
 
 	@Override
-	public Skills deserialize(JsonElement arg0, Type arg1, JsonDeserializationContext arg2) throws JsonParseException {
+	public Skills deserialize(JsonElement arg0, Type arg1, 
+			JsonDeserializationContext arg2) throws JsonParseException {
 		JsonObject obj = arg0.getAsJsonObject();
 		
 		List<SingleSkill> Skillz = new ArrayList<>();
