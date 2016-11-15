@@ -15,9 +15,16 @@ public class Skill {
 	
 	@Override
 	public String toString(){
-		return 	"nameJP: "+nameJP+"\n"+
-				"nameEN: "+nameEN+"\n"+
-				"att:    "+attribute+"\n"+
-				"cost:   "+cost+"\n";
+		return 	"nameJP:  "+nameJP+"\n"+
+				"nameEN:  "+nameEN+"\n"+
+				"att:     "+attribute+"\n"+
+				"cost:    "+cost+"\n"+
+				"power:	  "+power+"\n"+
+				"hits:	  "+hits+"\n"+
+				"kuli:	  "+kuli+"\n"+
+				"hit:	  "+hit+"\n"+
+				"target:  "+target+"\n"+
+				"str:	  "+strengthen+"\n"+
+				"effect:\n"+effect;
 	}
 }
