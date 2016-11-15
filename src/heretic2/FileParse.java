@@ -7,7 +7,7 @@ import java.io.Reader;
 
 public class FileParse {
 	public static void main(String[] args) throws IOException {
-		Reader readme = new FileReader("res/skills/Agi.json");
+		Reader readme = new FileReader("res/skills/Titanomachia.json");
 		BufferedReader buff = new BufferedReader(readme);
 		String line;
 		while((line = buff.readLine())!=null){
