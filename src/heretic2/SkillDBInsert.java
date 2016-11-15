@@ -13,7 +13,7 @@ public class SkillDBInsert {
 			
 			stmt = c.createStatement();
 			String sql = 	"INSERT INTO SKILLS (nameJP,nameEN,attr) "+
-							"VALUES ('waasdadagys','Titanomachia','Physical');";
+							"VALUES ('ティタノマキア','Titanomachia','Physical');";
 			stmt.executeUpdate(sql);
 			stmt.close();
 			c.close();	
