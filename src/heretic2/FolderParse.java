@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.Reader;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 import com.google.gson.Gson;
 
@@ -16,12 +16,11 @@ public class FolderParse {
 		String[] files = directory.list();
 		
 		Connection c = null;
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		
 		Class.forName("org.sqlite.JDBC");
 		c = DriverManager.getConnection("jdbc:sqlite:skills.db");
 		System.out.println("Opened database successfully");
-		stmt = c.createStatement();
 		
 		for(String f:files){
 			String g = "res/skills/"+f;
@@ -29,9 +28,23 @@ public class FolderParse {
 			Skill skill = gson.fromJson(reader, Skill.class);
 			reader.close();
 			
-			stmt.executeUpdate(skill.sql());
+			String sql = "INSERT INTO SKILLS (nameJP,nameEN,attr,cost,power,hits,kuli,hit,targ,str,effect) "+
+					"VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+			pstmt = c.prepareStatement(sql);
+			pstmt.setString(1, skill.nameJP);
+			pstmt.setString(2, skill.nameEN);
+			pstmt.setString(3, skill.attribute);
+			pstmt.setInt(4, skill.cost);
+			pstmt.setString(5, skill.power);
+			pstmt.setString(6, skill.hits);
+			pstmt.setString(7, skill.kuli);
+			pstmt.setString(8, skill.hit);
+			pstmt.setString(9, skill.target);
+			pstmt.setInt(10, skill.strengthen);
+			pstmt.setString(11, skill.effect);
+			pstmt.executeUpdate();
 		}
-		stmt.close();
+		pstmt.close();
 		c.close();
 	}
 }

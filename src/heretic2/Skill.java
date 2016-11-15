@@ -1,17 +1,17 @@
 package heretic2;
 
 public class Skill {
-	private String nameJP;
-	private String nameEN;
-	private String attribute;
-	private int cost;
-	private String power;
-	private String hits;
-	private String kuli;
-	private String hit;
-	private String target;
-	private int strengthen;
-	private String effect;
+	public String nameJP;
+	public String nameEN;
+	public String attribute;
+	public int cost;
+	public String power;
+	public String hits;
+	public String kuli;
+	public String hit;
+	public String target;
+	public int strengthen;
+	public String effect;
 	
 	@Override
 	public String toString(){
@@ -30,10 +30,5 @@ public class Skill {
 	
 	public String check(){
 		return nameEN+"-----"+nameJP;
-	}
-	
-	public String sql(){
-		return "INSERT INTO SKILLS (nameJP,nameEN,attr,cost,power,hits,kuli,hit,targ,str,effect) "+
-				"VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 	}
 }
