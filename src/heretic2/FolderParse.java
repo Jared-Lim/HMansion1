@@ -15,7 +15,8 @@ public class FolderParse {
 		System.out.println(directory.isDirectory());
 		String[] files = directory.list();
 		for(String f:files){
-			System.out.println(f);
+			String g = "res/skills/"+f;
+			System.out.println(g);
 		}
 	}
 }
