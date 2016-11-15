@@ -63,11 +63,33 @@ public class DBStuff {
 			String g = skillsFold+f;
 			try(Reader reader = new FileReader(g)){
 				Skill skill = gson.fromJson(reader, Skill.class);
-				skill.Insert(conn, db);
+				insertSkill(conn,skill);
 				System.out.println("Inserted "+skill.check());
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			}
 		}
+	}
+
+	public static void insertSkill(Connection conn,Skill skill){
+		String sql = "INSERT INTO skills (nameJP,nameEN,attr,cost,power,hits,kuli,hit,targ,str,effect) "+
+				"VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+		try(PreparedStatement pstate = conn.prepareStatement(sql)){
+			pstate.setString(1, skill.nameJP);
+			pstate.setString(2, skill.nameEN);
+			pstate.setString(3, skill.attribute);
+			pstate.setInt(4, skill.cost);
+			pstate.setString(5, skill.power);
+			pstate.setString(6, skill.hits);
+			pstate.setString(7, skill.kuli);
+			pstate.setString(8, skill.hit);
+			pstate.setString(9, skill.target);
+			pstate.setInt(10, skill.strengthen);
+			pstate.setString(11, skill.effect);
+			pstate.executeUpdate();
+		}catch(SQLException e){
+			System.out.println(e.getMessage());;
+		}
+		
 	}
 }
