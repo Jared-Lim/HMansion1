@@ -43,6 +43,8 @@ public class FolderParse {
 			pstmt.setInt(10, skill.strengthen);
 			pstmt.setString(11, skill.effect);
 			pstmt.executeUpdate();
+			
+			System.out.println("Inserted "+skill.check());
 		}
 		pstmt.close();
 		c.close();
