@@ -3,9 +3,21 @@ package heretic3;
 import java.sql.*;
 
 public class CreateDB {
-	public static void main(String[] args) throws Exception {
+	
+	private static String db = "jdbc:sqlite:heretic.db";
+	
+	public static void main(String[] args) {
+		try {
+			table();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public static void table() throws Exception{
 		Connection conn = null;
-		conn = DriverManager.getConnection("jdbc:sqlite:heretic.db");
+		conn = DriverManager.getConnection(db);
 		System.out.println("Opened database successfully");
 	}
 }
