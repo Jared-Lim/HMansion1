@@ -50,7 +50,6 @@ public class Skill {
 			pstate.setInt(10, strengthen);
 			pstate.setString(11, effect);
 			pstate.executeUpdate();
-			System.out.println("Inserted "+check());
 		}catch(SQLException e){
 			System.out.println(e.getMessage());;
 		}
