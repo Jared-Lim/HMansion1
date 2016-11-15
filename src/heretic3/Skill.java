@@ -37,7 +37,7 @@ public class Skill {
 	public void Insert(String db) throws SQLException{
 		Connection conn = null;
 		PreparedStatement pstate = null;
-		String sql = "INSERT INTO SKILLS (nameJP,nameEN,attr,cost,power,hits,kuli,hit,targ,str,effect) "+
+		String sql = "INSERT INTO skills (nameJP,nameEN,attr,cost,power,hits,kuli,hit,targ,str,effect) "+
 				"VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 		
 		conn = DriverManager.getConnection(db);
