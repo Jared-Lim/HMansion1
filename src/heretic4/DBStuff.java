@@ -2,7 +2,7 @@ package heretic4;
 
 import java.sql.*;
 
-public class MakeDB {
+public class DBStuff {
 	
 	private static String db = "jdbc:sqlite:heretic2.db";
 	
