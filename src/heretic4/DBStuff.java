@@ -14,8 +14,12 @@ public class DBStuff {
 	private static String skillsFold = "res/skills/";
 	
 	public static void main(String[] args) {
-		makeSkillsTable();
-		parseSkillsFolder();
+		try(Connection conn = connectDB()){
+			makeSkillsTable(conn);
+			parseSkillsFolder(conn);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public static Connection connectDB(){
@@ -29,7 +33,7 @@ public class DBStuff {
 		return conn;
 	}
 	
-	public static void makeSkillsTable(){
+	public static void makeSkillsTable(Connection conn){
 		String sql ="CREATE TABLE skills ("+
 				"nameJP STRING PRIMARY KEY,"+
 				"nameEN STRING,"+
@@ -43,8 +47,7 @@ public class DBStuff {
 				"str 	INT,"+
 				"effect STRING)";
 		
-		try(Connection conn = connectDB();
-				PreparedStatement pstate = conn.prepareStatement(sql)){
+		try(PreparedStatement pstate = conn.prepareStatement(sql)){
 			pstate.executeUpdate();
 			System.out.println("Created skills table");
 		}catch(SQLException e){
@@ -52,23 +55,19 @@ public class DBStuff {
 		}
 	}
 
-	public static void parseSkillsFolder(){
+	public static void parseSkillsFolder(Connection conn){
 		Gson gson = new Gson();
 		File directory = new File(skillsFold);
 		String[] files = directory.list();
-		try(Connection conn = connectDB()){
-			for(String f:files){
-				String g = skillsFold+f;
-				try(Reader reader = new FileReader(g)){
-					Skill skill = gson.fromJson(reader, Skill.class);
-					skill.Insert(conn, db);
-					System.out.println("Inserted "+skill.check());
-				} catch (IOException e) {
-					System.out.println(e.getMessage());
-				}
+		for(String f:files){
+			String g = skillsFold+f;
+			try(Reader reader = new FileReader(g)){
+				Skill skill = gson.fromJson(reader, Skill.class);
+				skill.Insert(conn, db);
+				System.out.println("Inserted "+skill.check());
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
 			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());;
 		}
 	}
 	
