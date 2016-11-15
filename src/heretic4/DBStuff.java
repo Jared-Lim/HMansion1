@@ -14,7 +14,7 @@ public class DBStuff {
 	private static String skillsFold = "res/skills/";
 	
 	public static void main(String[] args) {
-		//makeSkillsTable();
+		makeSkillsTable();
 		parseSkillsFolder();
 	}
 	
@@ -56,21 +56,19 @@ public class DBStuff {
 		Gson gson = new Gson();
 		File directory = new File(skillsFold);
 		String[] files = directory.list();
-		
-		for(String f:files){
-			String g = skillsFold+f;
-			try(Reader reader = new FileReader(g)){
-				Skill skill = gson.fromJson(reader, Skill.class);
-				try(Connection conn = connectDB()){
+		try(Connection conn = connectDB()){
+			for(String f:files){
+				String g = skillsFold+f;
+				try(Reader reader = new FileReader(g)){
+					Skill skill = gson.fromJson(reader, Skill.class);
 					skill.Insert(conn, db);
 					System.out.println("Inserted "+skill.check());
-				}catch(SQLException e){
-					System.out.println(e.getMessage());;
+				} catch (IOException e) {
+					System.out.println(e.getMessage());
 				}
-				
-			} catch (IOException e) {
-				System.out.println(e.getMessage());
 			}
+		}catch(SQLException e){
+			System.out.println(e.getMessage());;
 		}
 	}
 	
