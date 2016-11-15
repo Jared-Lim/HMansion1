@@ -15,10 +15,18 @@ public class SkillDBTest {
 			System.out.println("Opened database successfully");
 			
 			stmt = c.createStatement();
-			String sql = 	"CREATE TABLE SKILLS "+
-						   "(nameJP STRING PRIMARY KEY,"+
+			String sql = 	"CREATE TABLE SKILLS ("+
+						    "nameJP STRING PRIMARY KEY,"+
 							"nameEN STRING,"+
-							"attr STRING)";
+							"attr STRING,"+
+							"cost INT,"+
+							"power STRING,"+
+							"hits STRING,"+
+							"kuli STRING,"+
+							"hit STRING,"+
+							"targ STRING,"+
+							"str INT,"+
+							"effect STRING)";
 			
 			stmt.executeUpdate(sql);
 			stmt.close();

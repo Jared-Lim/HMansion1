@@ -23,12 +23,16 @@ public class Skill {
 				"hits:	  	"+hits+"\n"+
 				"kuli:	  	"+kuli+"\n"+
 				"hit:	  	"+hit+"\n"+
-				"target:  	"+target+"\n"+
+				"targ:  	"+target+"\n"+
 				"str:	  	"+strengthen+"\n"+
 				"effect:\n	"+effect;
 	}
 	
 	public String check(){
 		return nameEN+"-----"+nameJP;
+	}
+	
+	public String sql(){
+		return "";
 	}
 }
