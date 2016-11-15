@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 public class DBStuff {
 	
 	private static String db = "jdbc:sqlite:heretic2.db";
-	private static String skillsFold = "res/skills";
+	private static String skillsFold = "res/skills/";
 	
 	public static void main(String[] args) {
 		//makeSkillsTable();
@@ -24,7 +24,7 @@ public class DBStuff {
 			conn = DriverManager.getConnection(db);
 			System.out.println("Connected to database");
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());;
+			System.out.println(e.getMessage());
 		}
 		return conn;
 	}
@@ -58,14 +58,21 @@ public class DBStuff {
 		String[] files = directory.list();
 		
 		for(String f:files){
-			String g = "res/skills/"+f;
+			String g = skillsFold+f;
 			try(Reader reader = new FileReader(g)){
 				Skill skill = gson.fromJson(reader, Skill.class);
-				System.out.println(skill.check());
+				try(Connection conn = connectDB()){
+					skill.Insert(conn, db);
+					System.out.println("Inserted "+skill.check());
+				}catch(SQLException e){
+					System.out.println(e.getMessage());;
+				}
+				
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		}
 	}
-
+	
+	
 }
