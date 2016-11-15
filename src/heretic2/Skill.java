@@ -27,4 +27,8 @@ public class Skill {
 				"str:	  	"+strengthen+"\n"+
 				"effect:\n	"+effect;
 	}
+	
+	public String check(){
+		return nameEN+"-----"+nameJP+"\n";
+	}
 }
