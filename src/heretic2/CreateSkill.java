@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 import com.google.gson.Gson;
 
@@ -16,19 +16,29 @@ public class CreateSkill {
 		
 		Skill skill = gson.fromJson(reader, Skill.class);
 		reader.close();
-		System.out.println(skill.sql());
 		
 		Connection c = null;
-		Statement stmt = null;
+		PreparedStatement stmt = null;
 		try{
 			Class.forName("org.sqlite.JDBC");
 			c = DriverManager.getConnection("jdbc:sqlite:skills.db");
 			System.out.println("Opened database successfully");
-			
-			stmt = c.createStatement();
-			String sql = skill.sql();
-			stmt.executeUpdate(sql);
-			stmt.close();
+			String sql = "INSERT INTO SKILLS (nameJP,nameEN,attr,cost,power,hits,kuli,hit,targ,str,effect) "+
+					"VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+			stmt = c.prepareStatement(sql);
+			stmt = c.prepareStatement(sql);
+			stmt.setString(1, skill.nameJP);
+			stmt.setString(2, skill.nameEN);
+			stmt.setString(3, skill.attribute);
+			stmt.setInt(4, skill.cost);
+			stmt.setString(5, skill.power);
+			stmt.setString(6, skill.hits);
+			stmt.setString(7, skill.kuli);
+			stmt.setString(8, skill.hit);
+			stmt.setString(9, skill.target);
+			stmt.setInt(10, skill.strengthen);
+			stmt.setString(11, skill.effect);
+			stmt.executeUpdate();
 			c.close();	
 			
 		}catch(Exception e){
