@@ -92,4 +92,8 @@ public class DBStuff {
 		}
 		
 	}
+
+	public static void makeDemonsTable(Connection conn){
+
+	}
 }
