@@ -29,6 +29,6 @@ public class Skill {
 	}
 	
 	public String check(){
-		return nameEN+"-----"+nameJP+"\n";
+		return nameEN+"-----"+nameJP;
 	}
 }
