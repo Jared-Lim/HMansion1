@@ -16,6 +16,7 @@ public class SkillDBCreate {
 			
 			stmt = c.createStatement();
 			String sql = 	"CREATE TABLE SKILLS ("+
+			
 						    "nameJP STRING PRIMARY KEY,"+
 							"nameEN STRING,"+
 							"attr STRING,"+

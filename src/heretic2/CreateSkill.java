@@ -13,7 +13,7 @@ public class CreateSkill {
 		
 		Skill skill = gson.fromJson(reader, Skill.class);
 		reader.close();
-		System.out.println(skill.toString());
+		System.out.println(skill.sql());
 		System.exit(0);
 	}
 }

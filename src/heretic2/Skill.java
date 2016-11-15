@@ -17,7 +17,7 @@ public class Skill {
 	public String toString(){
 		return 	"nameJP:  	"+nameJP+"\n"+
 				"nameEN: 	"+nameEN+"\n"+
-				"att:     	"+attribute+"\n"+
+				"attr:     	"+attribute+"\n"+
 				"cost:    	"+cost+"\n"+
 				"power:	  	"+power+"\n"+
 				"hits:	  	"+hits+"\n"+
@@ -33,6 +33,18 @@ public class Skill {
 	}
 	
 	public String sql(){
-		return "";
+		return "INSERT INTO SKILLS (nameJP,nameEN,attr,cost,power,hits,kuli,hit,targ,str,effect) "+
+				"VALUES ("+
+				"'"+nameJP+"',"+
+				"'"+nameEN+"',"+
+				"'"+attribute+"',"+
+				cost+","+
+				"'"+power+"',"+
+				"'"+hits+"',"+
+				"'"+kuli+"',"+
+				"'"+hit+"',"+
+				"'"+target+"',"+
+				strengthen+","+
+				"'"+effect+"');";
 	}
 }
