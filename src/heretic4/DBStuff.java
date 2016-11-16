@@ -90,7 +90,6 @@ public class DBStuff {
 		}catch(SQLException e){
 			System.out.println(e.getMessage());;
 		}
-		
 	}
 
 	public static void makeDemonsTable(Connection conn){
