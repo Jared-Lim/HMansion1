@@ -13,11 +13,12 @@ public class Create {
 		builder.registerTypeAdapter(Skills.class, new SkillsDeserializer());
 		Gson gson = builder.create();
 	    
-	    Reader reader = new FileReader("res/demons/avatar/airavata.json");
+	    Reader reader = new FileReader("res/demons/avatar/anubis.json");
 	    
 	    Demon demoneeho = gson.fromJson(reader, Demon.class);
 	    reader.close();
-	    System.out.println(demoneeho.toString());
+	    System.out.println(demoneeho.getNameEN());
+	    System.out.println(demoneeho.getSkills().toString());
 	    
 	    System.exit(0);
 	}
