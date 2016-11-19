@@ -31,4 +31,18 @@ public class Affinities {
 				"confus: "+confusion+"\n"+
 				"poison: "+poison;
 	}
+
+	public String getphy(){return physical;}
+	public String getgun(){return gun;}
+	public String getfir(){return fire;}
+	public String getice(){return ice;}
+	public String getthu(){return thunder;}
+	public String getsho(){return shock;}
+	public String getban(){return banish;}
+	public String getcur(){return curse;}
+	public String getbin(){return bind;}
+	public String getsle(){return sleep;}
+	public String getcol(){return cold;}
+	public String getcon(){return confusion;}
+	public String getpoi(){return poison;}
 }
