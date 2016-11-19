@@ -9,6 +9,7 @@ public class Demon {
 	private Affinities affinity;
 	private Skills skills;
 	private String[][] fusions=null;
+	private Mutate mutate=null;
 	
 	public String toString(){
 		return    "--tribe: "+tribe+
@@ -24,7 +25,8 @@ public class Demon {
 				"\n--skills:\n"+
 				"-------------------\n"+
 				skills.ListOfSkills.toString()+
-				"\n--FUS: "+arrayOutput(fusions);
+				"\n--FUS: "+arrayOutput(fusions)+
+				"\n--Mut: "+mutate.toString();
 	}
 	
 	public String arrayOutput(String[][] fuse){
