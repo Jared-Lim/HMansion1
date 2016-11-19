@@ -53,5 +53,11 @@ public class Demon {
 	public String getNameEN(){return nameEN;}
 	public int getLevel(){return level;}
 	
-
+	public int gethp(){return stats.gethp();}
+	public int getmp(){return stats.getmp();}
+	public int getstr(){return stats.getstr();}
+	public int getskl(){return stats.getskl();}
+	public int getmag(){return stats.getmag();}
+	public int getspd(){return stats.getspd();}
+    public int getluk(){return stats.getluk();}
 }
