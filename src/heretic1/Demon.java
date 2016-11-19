@@ -8,7 +8,7 @@ public class Demon {
 	private Stats stats;
 	private Affinities affinity;
 	private Skills skills;
-	private String[][] fusions;
+	private String[][] fusions=null;
 	
 	public String toString(){
 		return    "--tribe: "+tribe+
@@ -28,6 +28,8 @@ public class Demon {
 	}
 	
 	public String arrayOutput(String[][] fuse){
+		
+		if(fuse!=null){
 		StringBuilder str = new StringBuilder();
 		
 		for(int i=0;i<fuse[0].length;i++){
@@ -38,6 +40,10 @@ public class Demon {
 		}
 		
 		return str.toString();
+		}
+		else{
+			return null;
+		}
 	}
 
 	public String getTribe(){return tribe;}
