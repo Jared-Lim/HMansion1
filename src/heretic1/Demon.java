@@ -39,4 +39,11 @@ public class Demon {
 		
 		return str.toString();
 	}
+
+	public String getTribe(){return tribe;}
+	public String getNameJP(){return nameJP;}
+	public String getNameEN(){return nameEN;}
+	public int getLevel(){return level;}
+	
+
 }
