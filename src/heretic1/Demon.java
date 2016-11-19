@@ -25,26 +25,27 @@ public class Demon {
 				"\n--skills:\n"+
 				"-------------------\n"+
 				skills.toString()+
-				"\n--FUS: "+arrayOutput(fusions)+
-				"\n--Mut: "+mutate.toString();
+				"\n--FUS: "+fusionCheck(fusions)+
+				"\n--MUT: "+mutateCheck(mutate);
 	}
-	
-	public String arrayOutput(String[][] fuse){
-		
+	public String fusionCheck(String[][] fuse){
 		if(fuse!=null){
-		StringBuilder str = new StringBuilder();
-		
-		for(int i=0;i<fuse[0].length;i++){
-			str.append(fuse[0][i]);
-			if(i + 1 < fuse[0].length){
-				str.append(" + ");
+			StringBuilder str = new StringBuilder();
+			for(int i=0;i<fuse[0].length;i++){
+				str.append(fuse[0][i]);
+				if(i + 1 < fuse[0].length){
+					str.append(", ");
+				}
 			}
+			return str.toString();
 		}
-		
-		return str.toString();
-		}
-		else{
-			return null;
+		else{return "-";}
+	}
+	public String mutateCheck(Mutate mutate){
+		if(mutate!=null){
+			return mutate.toString();
+		}else{
+			return "-";
 		}
 	}
 
@@ -52,6 +53,8 @@ public class Demon {
 	public String getNameJP(){return nameJP;}
 	public String getNameEN(){return nameEN;}
 	public int getLevel(){return level;}
+	//stats and affinities already have inner getters
 	public String getSkills(){return skills.toString();}
-    
+    public String getFusion(){return fusionCheck(fusions);}
+    public String getMutate(){return mutateCheck(mutate);}
 }

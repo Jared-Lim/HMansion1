@@ -6,6 +6,6 @@ public class Mutate {
 	
 	@Override
 	public String toString(){
-		return level+"--"+target;
+		return target+" ["+level+"]";
 	}
 }
