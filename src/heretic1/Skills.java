@@ -5,9 +5,7 @@ import java.util.List;
 public class Skills {
 	private List<SingleSkill> ListOfSkills;
 	
-	public void setSkills(List<SingleSkill> skills){
-		ListOfSkills = skills;
-	}
+	public void setSkills(List<SingleSkill> skills){ListOfSkills = skills;}	
 	
 	@Override
 	public String toString(){
