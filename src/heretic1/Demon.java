@@ -53,7 +53,8 @@ public class Demon {
 	public String getNameJP(){return nameJP;}
 	public String getNameEN(){return nameEN;}
 	public int getLevel(){return level;}
-	//stats and affinities already have inner getters
+	public Stats getStats(){return stats;}
+	public Affinities getAff(){return affinity;}
 	public String getSkills(){return skills.toString();}
     public String getFusion(){return fusionCheck(fusions);}
     public String getMutate(){return mutateCheck(mutate);}
