@@ -1,19 +1,19 @@
 package heretic1;
 
 public class Affinities {
-	public String physical;
-	public String gun;
-	public String fire;
-	public String ice;
-	public String thunder;
-	public String shock;
-	public String banish;
-	public String curse;
-	public String bind;
-	public String sleep;
-	public String cold;
-	public String confusion;
-	public String poison;
+	private String physical;
+	private String gun;
+	private String fire;
+	private String ice;
+	private String thunder;
+	private String shock;
+	private String banish;
+	private String curse;
+	private String bind;
+	private String sleep;
+	private String cold;
+	private String confusion;
+	private String poison;
 	
 	@Override
 	public String toString(){
