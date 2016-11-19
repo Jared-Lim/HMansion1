@@ -28,7 +28,7 @@ class SkillsDeserializer implements JsonDeserializer<Skills>{
 		}
 		
 		Skills skills = new Skills();
-		skills.ListOfSkills = Skillz;
+		skills.setSkills(Skillz);
 		
 		return skills;
 	}

@@ -3,7 +3,11 @@ package heretic1;
 import java.util.List;
 
 public class Skills {
-	public List<SingleSkill> ListOfSkills;
+	private List<SingleSkill> ListOfSkills;
+	
+	public void setSkills(List<SingleSkill> skills){
+		ListOfSkills = skills;
+	}
 	
 	@Override
 	public String toString(){

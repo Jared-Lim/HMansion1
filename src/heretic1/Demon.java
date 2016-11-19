@@ -24,7 +24,7 @@ public class Demon {
 				affinity.toString()+
 				"\n--skills:\n"+
 				"-------------------\n"+
-				skills.ListOfSkills.toString()+
+				skills.toString()+
 				"\n--FUS: "+arrayOutput(fusions)+
 				"\n--Mut: "+mutate.toString();
 	}
@@ -52,6 +52,6 @@ public class Demon {
 	public String getNameJP(){return nameJP;}
 	public String getNameEN(){return nameEN;}
 	public int getLevel(){return level;}
-	
+	public String getSkills(){return skills.toString();}
     
 }
