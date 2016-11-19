@@ -22,8 +22,8 @@ class SkillsDeserializer implements JsonDeserializer<Skills>{
 		
 		for(Map.Entry<String, JsonElement> entry : obj.entrySet()){
 			SingleSkill skl = new SingleSkill();
-			skl.name = entry.getKey();
-			skl.level = entry.getValue().getAsInt();
+			skl.setName(entry.getKey());
+			skl.setLevel(entry.getValue().getAsInt());
 			Skillz.add(skl);
 		}
 		
