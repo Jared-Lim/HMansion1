@@ -1,6 +1,7 @@
 package heretic4;
 
 public class Skill {
+	public int ID;
 	public String nameJP;
 	public String nameEN;
 	public String attribute;
@@ -15,7 +16,8 @@ public class Skill {
 	
 	@Override
 	public String toString(){
-		return 	"nameJP:  	"+nameJP+"\n"+
+		return 	"ID:	  	"+ID+"\n"+
+				"nameJP:  	"+nameJP+"\n"+
 				"nameEN: 	"+nameEN+"\n"+
 				"attr:     	"+attribute+"\n"+
 				"cost:    	"+cost+"\n"+
