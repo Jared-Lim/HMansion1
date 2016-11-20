@@ -35,7 +35,7 @@ public class DBStuff {
 	
 	public static void makeSkillsTable(Connection conn){
 		String sql ="CREATE TABLE skills ("+
-				"ID 	INT PRIMARY KEY,"+
+				"ID 	INT PRIMARY KEY NOT NULL,"+
 				"nameJP STRING,"+
 				"nameEN STRING,"+
 				"attr 	STRING,"+
@@ -76,20 +76,21 @@ public class DBStuff {
 	}
 
 	public static void insertSkill(Connection conn,Skill skill){
-		String sql = "INSERT INTO skills (nameJP,nameEN,attr,cost,power,hits,kuli,hit,targ,str,effect) "+
-				"VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO skills (ID,nameJP,nameEN,attr,cost,power,hits,kuli,hit,targ,str,effect) "+
+				"VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 		try(PreparedStatement pstate = conn.prepareStatement(sql)){
-			pstate.setString(1, skill.nameJP);
-			pstate.setString(2, skill.nameEN);
-			pstate.setString(3, skill.attribute);
-			pstate.setInt(4, skill.cost);
-			pstate.setString(5, skill.power);
-			pstate.setString(6, skill.hits);
-			pstate.setString(7, skill.kuli);
-			pstate.setString(8, skill.hit);
-			pstate.setString(9, skill.target);
-			pstate.setInt(10, skill.strengthen);
-			pstate.setString(11, skill.effect);
+			pstate.setInt(1, skill.ID);
+			pstate.setString(2, skill.nameJP);
+			pstate.setString(3, skill.nameEN);
+			pstate.setString(4, skill.attribute);
+			pstate.setInt(5, skill.cost);
+			pstate.setString(6, skill.power);
+			pstate.setString(7, skill.hits);
+			pstate.setString(8, skill.kuli);
+			pstate.setString(9, skill.hit);
+			pstate.setString(10, skill.target);
+			pstate.setInt(11, skill.strengthen);
+			pstate.setString(12, skill.effect);
 			pstate.executeUpdate();
 		}catch(SQLException e){
 			System.out.println(e.getMessage());;
