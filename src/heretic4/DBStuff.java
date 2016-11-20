@@ -35,7 +35,7 @@ public class DBStuff {
 	
 	public static void makeSkillsTable(Connection conn){
 		String sql ="CREATE TABLE skills ("+
-				"ID 	INT PRIMARY KEY,"+
+				"ID 	INT PRIMARY KEY NOT NULL,"+
 				"nameJP STRING,"+
 				"nameEN STRING,"+
 				"attr 	STRING,"+
@@ -60,8 +60,8 @@ public class DBStuff {
 		Gson gson = new Gson();
 		File directory = new File(skillsFold);
 		String[] files = directory.list();
+		int count = 1;
 		for(String f:files){
-			int count = 1;
 			String g = skillsFold+f;
 			try(Reader reader = new FileReader(g)){
 				Skill skill = gson.fromJson(reader, Skill.class);
