@@ -35,7 +35,7 @@ public class DBStuff {
 	
 	public static void makeSkillsTable(Connection conn){
 		String sql ="CREATE TABLE skills ("+
-				"ID 	INT PRIMARY KEY NOT NULL,"+
+				"ID 	INT PRIMARY KEY,"+
 				"nameJP STRING,"+
 				"nameEN STRING,"+
 				"attr 	STRING,"+
